@@ -73,6 +73,12 @@ ul {
     top: 8px;
     margin: 0px 12px;
     color: var(--color-light-white);
+    transition: all var(--animation-duration) ease;
+}
+
+.navbar__logo:hover {
+    color: var(--color-pink);
+    transform: scale(1.1)
 }
 
 .navbar__title {
@@ -85,12 +91,35 @@ ul {
 }
 
 .main__menu {
+    text-align: center;
     padding: 0;
     width: 150px;
     display: flex;
     height: 100%;
     flex-direction: column;
     background-color: var(--color-light-white);
+}
+
+.main__menu-item {
+    font-size: var(--font-regular);
+    margin: 0;
+    padding: 8px 12px;
+    border: 1px solid var(--color-white);
+    border-radius: var(--size-bolder-radius);
+    transition: all var(--animation-duration) ease;
+}
+
+.main__menu-item a {
+    color: var(--color-dark-grey);
+}
+
+.main__menu-item:hover {
+    background-color: var(--color-light-grey);
+    border-radius: var(--size-bolder-radius);
+}
+
+.main__menu-item:hover a {
+    color: var(--color-white)
 }
 
 .main__content {}
