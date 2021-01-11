@@ -88,6 +88,8 @@ ul {
 #main {
     display: flex;
     height: 100%;
+    text-align: center;
+    width: 100%;
 }
 
 .main__menu {
@@ -122,4 +124,56 @@ ul {
     color: var(--color-white)
 }
 
-.main__content {}
+.main__content {
+    text-align: center;
+    width: 100%;
+}
+
+.content__header {
+    color: var(--color-orange);
+    font-weight: var(--weight-bold);
+    font-size: 18px;
+}
+
+.content__table {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    border-spacing: 0px;
+}
+
+.content__table th {
+    background-color: var(--color-dark-pink);
+    color: var(--color-light-white);
+    padding: 12px;
+    margin: 0px;
+}
+
+.content__table td:nth-child(3) {
+    text-align: right;
+}
+
+.content__table td {
+    padding: 4px 8px;
+    cursor: pointer;
+    font-weight: var(--weight-semi-bold);
+    color: var(--color-grey);
+}
+
+.content__table tr:nth-child(odd) {
+    background-color: #e0e0e0;
+}
+
+.content__table tr:nth-child(even) {
+    background-color: #ededed;
+}
+
+.content__table tr:hover,
+.content__table tr:hover td {
+    color: var(--color-white);
+    background-color: var(--color-light-grey);
+}
+
+.content__table tr {
+    transition: all var(--animation-duration) ease;
+}

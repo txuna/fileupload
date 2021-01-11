@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/bfbc1ab4a5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/photon.css">
     <script src="/static/css/index.js" type="text/javascript" defer></script>
     <title>Fileupload</title>
 </head>
@@ -58,7 +59,42 @@
             </ul>
         </nav>
         <div class="main__content">
-            <H1>Hello world</H1>
+            <div class="content__header">
+                <h1>Directory Contents</h1>
+                <h2>Path : /root</h2>
+            </div>
+            <table class="content__table">
+                <thead>
+                    <th>Filename</th>
+                    <th>Type</th>
+                    <th>Size(byte)</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Profile.jpg</td>
+                        <td>JPEG</td>
+                        <td>123byte</td>
+                        <td>2021-01-12</td>
+                        <td>My Profile Image</td>
+                    </tr>
+                    <tr>
+                        <td>TestPatch.exe</td>
+                        <td>EXE</td>
+                        <td>321232byte</td>
+                        <td>2021-01-12</td>
+                        <td>Patch Execute File</td>
+                    </tr>
+                    <tr>
+                        <td>TestPatch.exe</td>
+                        <td>EXE</td>
+                        <td>321232byte</td>
+                        <td>2021-01-12</td>
+                        <td>Patch Execute File</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 </body>
