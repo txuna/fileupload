@@ -99,6 +99,17 @@
     height: 30px;
 }
 
+.stats__value:nth-child(1) {
+    border-radius: 4px 0px 0px 4px;
+}
+
+
+/* 끝만 어떻게 하지*/
+
+.stats__value:nth-child(3) {
+    border-radius: 0px 4px 4px 0px;
+}
+
 .value__name {
     padding: 1px;
     font-size: 20px;
