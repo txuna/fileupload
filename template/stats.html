@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/bfbc1ab4a5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/stats.css">
+    <script src="/static/css/index.js" type="text/javascript" defer></script>
+    <title>Fileupload</title>
+</head>
+
+<body>
+    <header id="navbar">
+        <div class="navbar__logo">
+            <i class="fas fa-cloud-upload-alt"></i>
+        </div>
+        <div class="navbar__title">
+            <h1>Fileupload</h1>
+        </div>
+    </header>
+
+    <section id="main">
+        <nav>
+            <ul class="main__menu">
+                <li class="main__menu-item">
+                    <a href="home.html">Home</a>
+                </li>
+                <li class="main__menu-item">
+                    <a href="stats.html">Stats</a>
+                </li>
+                <li class="main__menu-item">
+                    <a href="#">Security</a>
+                </li>
+                <li class="main__menu-item">
+                    <a href="#">Rule</a>
+                </li>
+                <li class="main__menu-item">
+                    <a href="#">Support</a>
+                </li>
+                <li class="main__menu-item">
+                    <a href="#">Terminal</a>
+                </li>
+                <li class="main__menu-item">
+                    <a href="#">Network</a>
+                </li>
+                <li class="main__menu-item">
+                    <a href="#">Firewall</a>
+                </li>
+                <li class="main__menu-item">
+                    <a href="#">Test</a>
+                </li>
+                <li class="main__menu-item">
+                    <a href="#">Test</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="main__content">
+            <div class="capacity">
+                <div class="capacity__topbar">
+                    <div class="capacity__logo">
+                        <i class="fas fa-hdd"></i>
+                    </div>
+                    <div class="capacity__title">
+                        <h1>Capacity</h1>
+                    </div>
+                </div>
+                <div class="capacity__content section">
+                    <div class="capacity__bar">
+                        <div class="capacity__value">
+                            <div class="capacity__percent">
+                                32%
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="stats__bar">
+                        <div class="stats__value" style="width:12%; background-color:#fdd835">
+                            <div class="value__name">
+                                JEPG
+                            </div>
+                        </div>
+                        <div class="stats__value" style="width:33%; background-color:#fbc02d">
+                            <div class="value__name">
+                                EXE
+                            </div>
+                        </div>
+                        <div class="stats__value" style="width:55%; background-color:#ffb300">
+                            <div class="value__name">
+                                Javascript
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="logging">
+                <div class="logging__topbar">
+                    <div class="logging__logo">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <div class="logging__title">
+                        <h1>Logging</h1>
+                    </div>
+                </div>
+                <div class="logging__content section">
+                    <table class="logging__table">
+                        <thead>
+                            <th>Method</th>
+                            <th>Filename</th>
+                            <th>Type</th>
+                            <th>Path</th>
+                            <th>Date</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>UPLOAD</td>
+                                <td>Profile.jpg</td>
+                                <td>JPEG</td>
+                                <td>/root/public</td>
+                                <td>2021-01-12</td>
+                            </tr>
+                            <tr>
+                                <td>DELETE</td>
+                                <td>index.js</td>
+                                <td>Javascript</td>
+                                <td>/root/private</td>
+                                <td>2021-01-12</td>
+                            </tr>
+                            <tr>
+                                <td>UPLOAD</td>
+                                <td>README.md</td>
+                                <td>Markdown</td>
+                                <td>/root/private/git-tutorial</td>
+                                <td>2021-01-11</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="packet">
+                <div class="packet__topbar">
+                    <div class="packet__logo">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <div class="packet__title">
+                        <h1>Packet</h1>
+                    </div>
+                </div>
+                <div class="packet__content section">
+                    <h1>Hello World</h1>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</body>
+
+</html>
