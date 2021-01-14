@@ -17,6 +17,7 @@
     --color-purple: #6a1b9a;
     --color-light-orange: #ff8a50;
     --color-light-green: #8bc34a;
+    --color-light-red: #ff7961;
     /* Font Size */
     --font-large: 48px;
     --font-medium: 28px;
@@ -33,28 +34,40 @@
     --animation-duration: 300ms;
 }
 
-.section {
-    max-width: 1200px;
+#main {
     text-align: center;
-    padding: 12px;
     margin: auto;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
 }
 
-.capacity {}
+.section {
+    text-align: center;
+    padding: 12px;
+}
+
+.capacity {
+    width: 100%;
+}
 
 .capacity__topbar {
     display: flex;
     justify-content: center;
-    margin: auto;
+}
+
+.capacity__title {
+    font-size: 24px;
+    padding: 0px 12px;
 }
 
 .capacity__logo {
     color: var(--color-light-grey);
-    position: relative;
-    top: 32px;
-    font-size: 48px;
+    font-size: 32px;
     padding: 0 12px;
     transition: all var(--animation-duration) ease;
+    position: relative;
+    top: 36px;
 }
 
 .capacity__logo:hover {
@@ -80,11 +93,6 @@
     padding: 1px;
     text-align: center;
     color: var(--color-grey);
-}
-
-.capacity__title {
-    font-size: var(--font-medium);
-    padding: 0 12px;
 }
 
 .stats__bar {
@@ -118,7 +126,9 @@
     color: var(--color-grey);
 }
 
-.logging {}
+.logging {
+    width: 100%;
+}
 
 .logging__topbar {
     display: flex;
@@ -128,8 +138,8 @@
 .logging__logo {
     color: var(--color-light-purple);
     position: relative;
-    top: 32px;
-    font-size: 48px;
+    top: 36px;
+    font-size: 32px;
     padding: 0px 12px;
     transition: all var(--animation-duration) ease;
 }
@@ -139,9 +149,11 @@
 }
 
 .logging__title {
-    font-size: var(--font-medium);
+    font-size: 24px;
     padding: 0 12px;
 }
+
+.logging__content {}
 
 .logging__table {
     margin: 0;
@@ -181,28 +193,86 @@
     transition: all var(--animation-duration) ease;
 }
 
-.packet {}
-
-.packet__topbar {
-    display: flex;
-    justify-content: center;
-    margin: auto;
-}
-
-.packet__logo {
-    color: #8bc34a;
-    position: relative;
-    top: 32px;
-    font-size: 48px;
-    padding: 0px 12px;
-    transition: all var(--animation-duration) ease;
-}
-
-.packet__logo:hover {
-    transform: scale(1.1)
-}
-
-.packet__title {
-    font-size: var(--font-medium);
-    padding: 0 12px;
+@media only screen and (max-width: 560px) {
+    .value__name {
+        padding: 6px;
+        font-size: 15px;
+        font-weight: var(--weight-bold);
+        text-align: center;
+        color: var(--color-grey);
+    }
+    .capacity__percent {
+        font-size: 15px;
+        font-weight: var(--weight-bold);
+        text-align: center;
+        padding: 4px;
+        color: var(--color-grey);
+    }
+    .main__content {
+        flex-direction: column;
+    }
+    .pagination a {
+        font-size: 14px;
+        color: var(--color-black);
+        padding: 8px 12px;
+        font-weight: var(--weight-bold);
+        transition: all var(--animation-duration) ease;
+    }
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    tr {
+        border: 1px solid #ccc;
+    }
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        text-align: center;
+        text-align: start;
+        direction: rtl;
+    }
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        text-align: left;
+        white-space: nowrap;
+    }
+    /*
+	Label the data
+	*/
+    td:nth-of-type(1):before {
+        content: "Method";
+    }
+    td:nth-of-type(2):before {
+        content: "Filename";
+    }
+    td:nth-of-type(3):before {
+        content: "Type";
+    }
+    td:nth-of-type(4):before {
+        content: "Path";
+    }
+    td:nth-of-type(5):before {
+        content: "Date";
+    }
 }

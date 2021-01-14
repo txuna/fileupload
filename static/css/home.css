@@ -1,7 +1,18 @@
+#main {
+    text-align: center;
+    width: 100%;
+}
+
 .content__header {
     color: var(--color-orange);
     font-weight: var(--weight-bold);
     font-size: 24px;
+}
+
+.content__header h1,
+.content__header h2 {
+    margin: 0px;
+    padding: 4px;
 }
 
 .content__table {
@@ -16,10 +27,6 @@
     color: var(--color-light-white);
     padding: 12px;
     margin: 0px;
-}
-
-.content__table td:nth-child(3) {
-    text-align: right;
 }
 
 .content__table td {
@@ -45,4 +52,78 @@
 
 .content__table tr {
     transition: all var(--animation-duration) ease;
+}
+
+@media only screen and (max-width: 560px) {
+    #navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .main__menu {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+    .main__menu-item {
+        width: 100%;
+    }
+    .main__content {
+        flex-direction: column;
+    }
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    tr {
+        border: 1px solid #ccc;
+    }
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        text-align: start;
+        direction: rtl;
+    }
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+    }
+    /*
+	Label the data
+	*/
+    td:nth-of-type(1):before {
+        content: "Filename";
+    }
+    td:nth-of-type(2):before {
+        content: "Type";
+    }
+    td:nth-of-type(3):before {
+        content: "Size";
+    }
+    td:nth-of-type(4):before {
+        content: "Date";
+    }
+    td:nth-of-type(5):before {
+        content: "Description";
+    }
 }
