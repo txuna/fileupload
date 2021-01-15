@@ -1,6 +1,48 @@
+/* Global */
+
+:root {
+    /* Color */
+    --color-white: #ffffff;
+    --color-light-white: #eeeeee;
+    --color-dark-white: #bdbdbd;
+    --color-pink: #fe918d;
+    --color-dark-pink: #ff6863;
+    --color-dark-grey: #4d4d4d;
+    --color-grey: #616161;
+    --color-light-grey: #7c7979;
+    --color-blue: #73aace;
+    --color-yellow: #fff7d1;
+    --color-orange: #feb546;
+    --color-black: #000000;
+    --color-navy: #34354B;
+    --color-light-purple: #9c4dcc;
+    --color-purple: #6a1b9a;
+    --color-light-orange: #ff8a50;
+    --color-light-green: #8bc34a;
+    --color-light-red: #ff7961;
+    --color-dark-purple: #65499c;
+    /* Font Size */
+    --font-large: 48px;
+    --font-medium: 28px;
+    --font-regular: 18px;
+    --font-small: 16px;
+    --font-micro: 14px;
+    /* Font weight */
+    --weight-bold: 700;
+    --weight-semi-bold: 600;
+    --weight-regular: 400;
+    /* Size */
+    --size-bolder-radius: 4px;
+    /* Animation */
+    --animation-duration: 300ms;
+}
+
 #main {
     text-align: center;
     width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .content__header {
@@ -54,6 +96,72 @@
     transition: all var(--animation-duration) ease;
 }
 
+
+/*=====================================================*/
+
+.content__screen {
+    position: relative;
+    background-color: lightblue;
+    margin: 25px 50px;
+    height: 80%;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+    align-content: flex-start;
+}
+
+.object {
+    font-size: 56px;
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+    transition: all var(--animation-duration) ease;
+}
+
+.folder {
+    color: #ffd600;
+}
+
+.image {
+    color: var(--color-light-red);
+}
+
+.text {
+    color: var(--color-light-white);
+}
+
+.object span {
+    font-size: 24px;
+    color: var(--color-black);
+}
+
+.object:hover {
+    transform: scale(1.1);
+}
+
+.object::after {
+    content: '';
+    width: 0px;
+    height: 3px;
+    display: block;
+    position: relative;
+    left: 15%;
+    margin-left: -12px;
+    margin-top: 8px;
+    background-color: var(--color-dark-pink);
+    transform-origin: left;
+    transition: width 300ms ease;
+    z-index: -1;
+    opacity: 0;
+}
+
+.object:hover::after {
+    opacity: 1;
+    width: 100%;
+}
+
 @media only screen and (max-width: 560px) {
     #navbar {
         flex-direction: column;
@@ -66,64 +174,5 @@
     }
     .main__menu-item {
         width: 100%;
-    }
-    .main__content {
-        flex-direction: column;
-    }
-    /* Force table to not be like tables anymore */
-    table,
-    thead,
-    tbody,
-    th,
-    td,
-    tr {
-        display: block;
-    }
-    /* Hide table headers (but not display: none;, for accessibility) */
-    thead tr {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-    }
-    tr {
-        border: 1px solid #ccc;
-    }
-    td {
-        /* Behave  like a "row" */
-        border: none;
-        border-bottom: 1px solid #eee;
-        position: relative;
-        padding-left: 50%;
-        text-align: start;
-        direction: rtl;
-    }
-    td:before {
-        /* Now like a table header */
-        position: absolute;
-        /* Top/left values mimic padding */
-        top: 6px;
-        left: 6px;
-        width: 45%;
-        padding-right: 10px;
-        white-space: nowrap;
-        text-align: left;
-    }
-    /*
-	Label the data
-	*/
-    td:nth-of-type(1):before {
-        content: "Filename";
-    }
-    td:nth-of-type(2):before {
-        content: "Type";
-    }
-    td:nth-of-type(3):before {
-        content: "Size";
-    }
-    td:nth-of-type(4):before {
-        content: "Date";
-    }
-    td:nth-of-type(5):before {
-        content: "Description";
     }
 }
