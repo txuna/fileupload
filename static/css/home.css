@@ -101,7 +101,7 @@
 
 .content__screen {
     position: relative;
-    background-color: lightblue;
+    background-color: #b2ebf2;
     margin: 25px 50px;
     height: 80%;
     border-radius: 10px;
@@ -111,7 +111,7 @@
     align-content: flex-start;
 }
 
-.object {
+.content {
     font-size: 56px;
     padding: 8px 12px;
     display: flex;
@@ -132,22 +132,22 @@
     color: var(--color-light-white);
 }
 
-.object span {
+.content span {
     font-size: 24px;
     color: var(--color-black);
 }
 
-.object:hover {
+.content:hover {
     transform: scale(1.1);
 }
 
-.object::after {
+.content::after {
     content: '';
     width: 0px;
     height: 3px;
     display: block;
     position: relative;
-    left: 15%;
+    left: 13%;
     margin-left: -12px;
     margin-top: 8px;
     background-color: var(--color-dark-pink);
@@ -157,9 +157,43 @@
     opacity: 0;
 }
 
-.object:hover::after {
+.content:hover::after {
     opacity: 1;
     width: 100%;
+}
+
+#context-menu {
+    width: 150px;
+    background-color: var(--color-light-white);
+    position: fixed;
+    z-index: 10000;
+    transform: scale(0);
+    transform-origin: top left;
+    border-radius: var(--size-bolder-radius);
+}
+
+#context-menu.active {
+    transform: scale(1.1);
+    transition: transform var(--animation-duration) ease-in-out;
+}
+
+#context-menu .item {
+    padding: 8px 10px;
+    font-size: 15px;
+    color: var(--color-dark-grey);
+}
+
+#context-menu .item:hover {
+    background-color: var(--color-light-grey);
+}
+
+#context-menu .item i {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+#context-menu .item:hover {
+    color: var(--color-white);
 }
 
 @media only screen and (max-width: 560px) {
