@@ -5,8 +5,10 @@ function init() {
         object.addEventListener("contextmenu", function(event) {
             event.preventDefault();
             const contextElement = document.querySelector("#context-menu");
+            contextElement.classList.add("remove");
             contextElement.style.top = event.clientY + "px";
             contextElement.style.left = event.clientX + "px";
+            contextElement.classList.remove("remove");
             contextElement.classList.add("active");
 
         });
@@ -14,7 +16,10 @@ function init() {
     window.addEventListener("click", function() {
         const contextElement = document.querySelector("#context-menu");
         contextElement.classList.remove("active");
+        contextElement.classList.add("remove");
     })
 }
+
+
 
 init()

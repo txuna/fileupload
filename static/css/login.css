@@ -1,0 +1,57 @@
+#main {
+    background: linear-gradient(to right top, #65dfc9, #6cdbfd);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login__content {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    width: 50%;
+    align-items: center;
+    margin: auto;
+}
+
+.id {
+    margin: 12px;
+    height: 30px;
+    width: 100%;
+}
+
+.password {
+    margin: 12px;
+    height: 30px;
+    width: 100%;
+}
+
+.login-btn {
+    margin: 12px;
+    height: 30px;
+    width: 100%;
+    border: none;
+    background-color: #58a5f0;
+    border-radius: 4px;
+}
+
+.glass {
+    border-radius: 20px;
+    background: white;
+    min-height: 80vh;
+    width: 60%;
+    opacity: 0.8;
+    background: linear-gradient(to right top, #eee, #e0f7fa);
+}
+
+.login__title i {
+    font-size: 48px;
+    color: #00bcd4;
+}
+
+.login__title span {
+    font-size: 48px;
+    margin-left: 12px;
+    font-weight: bold;
+}

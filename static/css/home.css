@@ -101,7 +101,7 @@
 
 .content__screen {
     position: relative;
-    background-color: #b2ebf2;
+    background: linear-gradient(to right top, #65dfc9, #6cdbfd);
     margin: 25px 50px;
     height: 80%;
     border-radius: 10px;
@@ -177,6 +177,11 @@
     transition: transform var(--animation-duration) ease-in-out;
 }
 
+#context-menu.remove {
+    transform: scale(0);
+    transition: transform var(--animation-duration) ease-in-out;
+}
+
 #context-menu .item {
     padding: 8px 10px;
     font-size: 15px;
@@ -194,6 +199,10 @@
 
 #context-menu .item:hover {
     color: var(--color-white);
+}
+
+.detail-modal {
+    display: none;
 }
 
 @media only screen and (max-width: 560px) {
