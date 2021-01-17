@@ -7,8 +7,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/bfbc1ab4a5.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/static/css/base.css">
-    <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/home.css">
 
     <title>Fileupload</title>
 </head>
@@ -44,27 +44,9 @@
             <h1>Directory Contents</h1>
             <h2>Current Path : /root</h2>
         </div>
+        <!--fetch 함수로 서버로 부터 값을 받아옴-->
         <div class="content__screen">
-            <div class="content folder object" data-filepath="/root/Project">
-                <i class="fas fa-folder"></i>
-                <span>Project</span>
-            </div>
-            <div class="content folder object" data-filepath="/root/git-tutorial">
-                <i class="fas fa-folder"></i>
-                <span>git-tutorial</span>
-            </div>
-            <div class="content folder object" data-filepath="/root/Gallery">
-                <i class="fas fa-folder"></i>
-                <span>Gallery</span>
-            </div>
-            <div class="content image object" data-filepath="/root/profile.jpg">
-                <i class="far fa-file-image"></i>
-                <span>profile.jpg</span>
-            </div>
-            <div class="content text object" data-filepath="/root/Hello.txt">
-                <i class="far fa-file-alt"></i>
-                <span>Hello.txt</span>
-            </div>
+
         </div>
     </section>
     <!-- 클릭했을 때 어떤 파일인지 어떻게 알 수 있는가 현재 경로와  파일이름을 보내면 되나? 그럼 해당 정보를 기반으로 fetch -->
@@ -89,7 +71,7 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="/static/js/home.js"></script>
+    <script type="text/javascript" src="/js/home.js"></script>
 </body>
 
 </html>
