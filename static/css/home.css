@@ -222,7 +222,8 @@
 }
 
 .modal__content {
-    background-color: #fefefe;
+    border-radius: var(--size-bolder-radius);
+    background-color: #eceff1;
     margin: 15% auto;
     /* 15% from the top and centered */
     padding: 20px;
