@@ -1,0 +1,35 @@
+{
+    "files": [{
+            "id": 1,
+            "filename": "profile.jpeg",
+            "display": "image",
+            "path": "root",
+            "fullpath": "root->profile.jpeg",
+            "Uploadtime": "2021-01-05 12:03:23",
+            "modfiedtime": "2021-01-07 06:12:38",
+            "type": "JPEG",
+            "size": 321333
+        }, {
+            "id": 2,
+            "filename": "git-tutorial",
+            "display": "folder",
+            "path": "root",
+            "fullpath": "root->git-tutorial",
+            "Uploadtime": "2021-01-05 12:03:23",
+            "modfiedtime": "2021-01-07 06:12:38",
+            "type": "folder",
+            "size": 321333
+        },
+        {
+            "id": 3,
+            "filename": "profile.jpeg",
+            "display": "image",
+            "path": "root->git-tutorial",
+            "fullpath": "root->git-tutorial->profile.jpeg",
+            "Uploadtime": "2021-01-05 12:03:23",
+            "modfiedtime": "2021-01-07 06:12:38",
+            "type": "JPEG",
+            "size": 321333
+        }
+    ]
+}

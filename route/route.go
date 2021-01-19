@@ -5,10 +5,11 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo"
+	"github.com/txuna/fileupload/libdb"
 )
 
 //File struct is used by HomeDirectory func
-type file struct {
+type File struct {
 	Path     string `json:"path"`
 	Filename string `json:"filename"`
 	Display  string `json:"display"`
@@ -16,7 +17,7 @@ type file struct {
 
 //Dir struct is used by HomeDirectory func
 type Dir struct {
-	Fs   []file `json:"fs"`
+	Fs   []File `json:"fs"`
 	Path string `json:"path"`
 }
 
@@ -27,28 +28,6 @@ type FileDetail struct {
 	Type       string `json:"type"`
 	Size       int    `json:"size"`
 	UploadTime string `json:"uploadtime"`
-}
-
-//FilesDB struct is used by virtual_db.json
-type FilesDB struct {
-	ID          int    `json:"id"`
-	Filename    string `json:"filename"`
-	Display     string `json:"display"`
-	Path        string `json:"path"`
-	UploadTime  string `json:"uploadtime"`
-	ModfiedTime string `json:"modfiedtime"`
-	Type        string `json:"type"`
-	Size        int    `json:"size"`
-}
-
-//LogsDB struct is used by virtual_db.json
-type LogsDB struct {
-	ID       int    `json:"id"`
-	Method   string `json:"method"`
-	Filename string `json:"filename"`
-	Type     string `json:"type"`
-	Path     string `json:"path"`
-	Time     string `json:"time"`
 }
 
 /*
@@ -65,49 +44,52 @@ return JSON - 보낼 때 현재 디렉토리 위치도 보내야 하는데 + 뒤
 */
 func HomeDirectory(c echo.Context) error {
 
-	requestPath := c.Param("path") //추후 dir의 위치를 기반으로 디렉토리 리스트를 제공한다.
-	fmt.Println("Request Directory Path : ", requestPath)
-	var f []file
-	if requestPath == "root" {
-		f = append(f, file{Path: "root->profile.jpeg",
-			Filename: "profile.jpeg",
-			Display:  "image"})
-		f = append(f, file{Path: "root->git-tutorial",
-			Filename: "git-tutorial",
-			Display:  "folder"})
-	} else if requestPath == "root->git-tutorial" {
-		f = append(f, file{Path: "root",
-			Filename: "..",
-			Display:  "folder"})
-		f = append(f, file{Path: "root->git-tutorial->helloworld",
-			Filename: "helloworld",
-			Display:  "folder"})
+	filesDB, err := libdb.Readjson()
+	if err != nil {
+		fmt.Println(err)
 	}
-	dir := &Dir{
-		Fs:   f,
-		Path: requestPath,
+	requestPath := c.Param("path") //추후 dir의 위치를 기반으로 디렉토리 리스트를 제공한다.
+	var file []File
+
+	for _, fileDB := range filesDB.Files {
+		if fileDB.Path == requestPath {
+			file = append(file, File{
+				Path:     fileDB.Path + "->" + fileDB.Filename,
+				Filename: fileDB.Filename,
+				Display:  fileDB.Display,
+			})
+		}
 	}
 
-	return c.JSON(http.StatusOK, dir)
+	dir := &Dir{
+		Fs:   file,
+		Path: requestPath,
+	}
+	return c.JSON(http.StatusOK, &dir)
 }
 
 //HomeDetail response file detail for example, /home/detail?filepath=/root/profile.jpg
 func HomeDetail(c echo.Context) error {
-	fmt.Println("Param : " + c.Param("path"))
-	fd := &FileDetail{
-		Path:       "root",
-		Filename:   "profile.jpeg",
-		Type:       "JPEG",
-		Size:       32321,
-		UploadTime: "2021-01-13 13:32:17",
+	requestPath := c.Param("path")
+	filesDB, err := libdb.Readjson()
+	var filedetail FileDetail
+	if err != nil {
+		fmt.Println(err)
 	}
-	return c.JSON(http.StatusOK, fd)
-}
+	for _, fileDB := range filesDB.Files {
+		if fileDB.Fullpath == requestPath {
+			filedetail = FileDetail{
+				Path:       fileDB.Path,
+				Filename:   fileDB.Filename,
+				Type:       fileDB.Type,
+				Size:       fileDB.Size,
+				UploadTime: fileDB.UploadTime,
+			}
+		}
+	}
 
-/*
-TODO
-1. 폴더나 파일을 더블클릭했을 떄 해당 오프젝트가 폴더라면 폴더의 경로를 서버로 보내고 그 경로에 맞는 디렉토리 목록을 받는다. -> HomeDirectory 재사용
-*/
+	return c.JSON(http.StatusOK, filedetail)
+}
 
 //Stats response stats.html
 func Stats(c echo.Context) error {

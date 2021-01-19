@@ -1,0 +1,10 @@
+{
+    "Logs": [{
+        "Id": 1,
+        "Method": "UPLAOD",
+        "Filename": "progile.jpeg",
+        "Type": "JPEG",
+        "Path": "root",
+        "Time": "2021-01-05 07:23:57"
+    }]
+}
