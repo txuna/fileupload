@@ -28,18 +28,17 @@ func main() {
 	e.Renderer = t
 	//Set Static file path
 	e.Use(middleware.Static("static"))
-	e.Use(middleware.Logger())
+	//e.Use(middleware.Logger())
 
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
 		AllowOrigins: []string{"*"},
 		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAccept},
 	}))
 	/* Route*/
-	e.GET("/", route.Test)
 	e.GET("/home", route.Home)
 	e.GET("/stats", route.Stats)
-	e.GET("/homeDirectory", route.HomeDirectory)
-	e.GET("/homeDetail", route.HomeDetail)
+	e.GET("/homeDirectory/:path", route.HomeDirectory)
+	e.GET("/homeDetail/:path", route.HomeDetail)
 
 	e.Logger.Fatal(e.Start(port))
 }

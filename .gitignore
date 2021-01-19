@@ -1,4 +1,5 @@
 .vscode 
-.json 
+ftp.json
+sftp.json
 go.mod
 go.sum

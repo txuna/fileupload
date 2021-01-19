@@ -1,0 +1,41 @@
+{
+    "Files": [{
+            "Id": 1,
+            "Filename": "profile.jpeg",
+            "Display": "image",
+            "path": "root",
+            "Uploadtime": "2021-01-05 12:03:23",
+            "ModifiedTime": "2021-01-07 06:12:38",
+            "Type": "JPEG",
+            "Size": 321333
+        }, {
+            "Id": 2,
+            "Filename": "git-tutorial",
+            "Display": "folder",
+            "path": "root",
+            "Uploadtime": "2021-01-05 12:03:23",
+            "ModifiedTime": "2021-01-07 06:12:38",
+            "Type": "DIR",
+            "Size": 4
+        },
+        {
+            "Id": 3,
+            "Filename": "Helloworld.txt",
+            "Display": "text",
+            "path": "root->git-tutorial",
+            "UploadTime": "2021-01-05 14:03:23",
+            "ModifiedTime": "2021-01-07 06:12:38",
+            "Type": "TXT",
+            "Size": 38
+        }
+    ],
+
+    "Logs": [{
+        "Id": 1,
+        "Method": "UPLAOD",
+        "Filename": "progile.jpeg",
+        "Type": "JPEG",
+        "Path": "root",
+        "Time": "2021-01-05 07:23:57"
+    }]
+}
