@@ -3,6 +3,7 @@ package route
 import (
 	"fmt"
 	"net/http"
+	"reflect"
 
 	"github.com/labstack/echo"
 	"github.com/txuna/fileupload/libdb"
@@ -44,9 +45,9 @@ return JSON - 보낼 때 현재 디렉토리 위치도 보내야 하는데 + 뒤
 */
 func HomeDirectory(c echo.Context) error {
 
-	filesDB, err := libdb.Readjson()
+	filesDB, err := libdb.ReadFileDBjson()
 	if err != nil {
-		fmt.Println(err)
+		return err
 	}
 	requestPath := c.Param("path") //추후 dir의 위치를 기반으로 디렉토리 리스트를 제공한다.
 	var file []File
@@ -71,10 +72,10 @@ func HomeDirectory(c echo.Context) error {
 //HomeDetail response file detail for example, /home/detail?filepath=/root/profile.jpg
 func HomeDetail(c echo.Context) error {
 	requestPath := c.Param("path")
-	filesDB, err := libdb.Readjson()
+	filesDB, err := libdb.ReadFileDBjson()
 	var filedetail FileDetail
 	if err != nil {
-		fmt.Println(err)
+		return err
 	}
 	for _, fileDB := range filesDB.Files {
 		if fileDB.Fullpath == requestPath {
@@ -94,4 +95,18 @@ func HomeDetail(c echo.Context) error {
 //Stats response stats.html
 func Stats(c echo.Context) error {
 	return c.File("template/stats.html")
+}
+
+/*
+StatsLog func response logs => page넘버가 넘어오는데 한 페이지당 10개씩 보여준다.
+*/
+func StatsLog(c echo.Context) error {
+	pageStr := c.Param("page")
+	fmt.Println(reflect.TypeOf(pageStr))
+	logsDB, err := libdb.PagenationLogDB(pageStr)
+	if err != nil {
+		return err
+	}
+
+	return c.JSON(http.StatusOK, logsDB.Logs)
 }

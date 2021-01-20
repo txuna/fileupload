@@ -37,6 +37,7 @@ func main() {
 	/* Route*/
 	e.GET("/home", route.Home)
 	e.GET("/stats", route.Stats)
+	e.GET("/statsLog/:page", route.StatsLog)
 	e.GET("/homeDirectory/:path", route.HomeDirectory)
 	e.GET("/homeDetail/:path", route.HomeDetail)
 
